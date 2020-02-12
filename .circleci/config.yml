@@ -6,10 +6,11 @@ general:
       - master
 
 jobs:
-  setup-wordpress:
+  build-wordpress:
     docker:
       - image: alpine:3.7
     steps:
+      - checkout
       - run:
           name: Kill
           command: |
