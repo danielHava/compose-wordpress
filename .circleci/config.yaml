@@ -1,0 +1,23 @@
+version: 2.1
+
+general:
+  branches:
+    only:
+      - master
+
+jobs:
+  setup-wordpress:
+    docker:
+      - image: alpine:3.7
+    steps:
+      - run:
+          name: Kill
+          command: |
+            echo 'Stoping already running Containers...'
+            docker-compose stop
+            docker-compose rm -v --force
+      - run:
+          name: Start
+          command: |
+            echo 'Starting Wordpress Containers...'
+            docker-compose up -d
