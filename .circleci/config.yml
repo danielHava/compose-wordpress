@@ -6,7 +6,7 @@ general:
       - master
 
 jobs:
-  build-wordpress:
+  wpbuild:
     docker:
       - image: alpine:3.7
     steps:
