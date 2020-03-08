@@ -1,24 +1,8 @@
 version: 2.1
-
-general:
-  branches:
-    only:
-      - master
-
 jobs:
-  wpbuild:
-    docker:
-      - image: alpine:3.7
+  build:
+    docker: 
+      - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
     steps:
-      - checkout
-      - run:
-          name: Kill
-          command: |
-            echo 'Stoping already running Containers...'
-            docker-compose stop
-            docker-compose rm -v --force
-      - run:
-          name: Start
-          command: |
-            echo 'Starting Wordpress Containers...'
-            docker-compose up -d
+      - checkout # check out the code in the project directory
+      - run: echo "hello world" # run the `echo` command
