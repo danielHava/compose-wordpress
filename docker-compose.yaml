@@ -54,7 +54,7 @@ services:
     volumes:
       - certbot-etc:/etc/letsencrypt
       - wordpress:/var/www/html
-    command: certonly --webroot --webroot-path=/var/www/html --email dani.hava@protonmail.com --agree-tos --no-eff-email --staging -d hava.gq -d www.hava.gq
+    command: certonly --webroot --webroot-path=/var/www/html --email dani.hava@protonmail.com --agree-tos --no-eff-email --force-renewal -d hava.gq -d www.hava.gq
 
 volumes:
   certbot-etc:
