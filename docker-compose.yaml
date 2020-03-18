@@ -5,7 +5,7 @@ services:
     image: mysql:8.0
     container_name: database
     restart: unless-stopped
-    env_file: .env
+    env_file: .db_env
     environment:
       - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
       - MYSQL_DATABASE=wordpress
@@ -21,7 +21,7 @@ services:
     image: wordpress:5.3.2-fpm-alpine
     container_name: wordpress
     restart: unless-stopped
-    env_file: .env
+    env_file: .wp_env
     environment:
       - WORDPRESS_DB_HOST=db:3306
       - WORDPRESS_DB_USER=$MYSQL_USER
@@ -53,7 +53,7 @@ services:
       - webserver
     image: certbot/certbot
     container_name: certbot
-    env_file: .env
+    env_file: .cert_env
     volumes:
       - certbot-etc:/etc/letsencrypt
       - wordpress:/var/www/html
