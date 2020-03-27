@@ -53,7 +53,7 @@ services:
     volumes:
       - certbot-etc:/etc/letsencrypt
       - wordpress:/var/www/html
-    command: certonly --webroot --webroot-path=/var/www/html --email dani.hava@protonmail.com --agree-tos --no-eff-email --staging -d &DOMAIN& -d www.&DOMAIN&
+    command: certonly --webroot --webroot-path=/var/www/html --email &EMAIL& --agree-tos --no-eff-email --staging -d &DOMAIN& -d www.&DOMAIN&
 
 volumes:
   certbot-etc:
