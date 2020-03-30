@@ -103,3 +103,22 @@ To setup the automatic renewal of the certificates follow the steps:
  * chmod +x ssl_renew.sh
  * sudo crontab -e
  * add '`0 12 * * * ~/wordpress/scripts/ssl_renew.sh >> /var/log/cron.log 2>&1`'
+
+## Create Swap file
+
+To create a swap file and mount it:
+ * sudo fallocate -l 1G /swapfile
+ * sudo dd if=/dev/zero of=/swapfile bs=1024 count=1048576
+ * sudo chmod 600 /swapfile
+ * sudo mkswap /swapfile
+ * sudo swapon /swapfile
+ * sudo vim /etc/fstab
+ * add `/swapfile swap swap defaults 0 0`
+ * sudo mount -a
+
+## Configuration
+
+Install additional php utilities `sudo apt install php-curl php-gd php-mbstring php-xml php-xmlrpc`
+
+Edit php.ini to handle upload sizes and timeouts:
+ * 
