@@ -15,7 +15,9 @@ services:
   wordpress:
     depends_on: 
       - database
-    image: wordpress:5.3.2-fpm-alpine
+    build: 
+      context: .
+      dockerfile: Dockerfile
     container_name: wordpress
     restart: unless-stopped
     env_file: .env
