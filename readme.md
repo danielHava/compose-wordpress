@@ -18,7 +18,7 @@ These instructions will get you a copy of the project up and running on your loc
   1. Clone the repo
   2. cd compose-wordpress
   3. vim .env and add your environment varibles
-  4. sed s/&DOMAIN&/your_domain/g ./nginx-conf/nginx-nossl.conf > ./nginx-conf/nginx.conf
+  4. sed s/&DOMAIN&/your_domain/g ./nginx/nginx-nossl.conf > ./nginx/nginx.conf
   5. sed -i s/&DOMAIN&/your_domain/g ./docker-compose.yaml
   6. sed -i s/&EMAIL&/your_email/g ./docker-compose.yaml
   7. docker-compose up -d will execute the containers
@@ -72,9 +72,9 @@ To enable `https` follow the steps:
   * replace the --staging flag in your docker-compose file with --force-renewal
   * docker-compose up --force-recreate --no-deps certbot
   * docker stop webserver
-  * curl -sSLo nginx-conf/options-ssl-nginx.conf https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/_internal/tls_configs/options-ssl-nginx.conf
-  * rm nginx-conf/nginx.conf
-  * sed s/&DOMAIN&/your_domain/g ./nginx-conf/nginx-ssl.conf > ./nginx-conf/nginx.conf
+  * curl -sSLo nginx/options-ssl-nginx.conf https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/_internal/tls_configs/options-ssl-nginx.conf
+  * rm nginx/nginx.conf
+  * sed s/&DOMAIN&/your_domain/g ./nginx/nginx-ssl.conf > ./nginx/nginx.conf
   * add "443:443" port mapping to the webserver service in the docker-compose file
   * docker-compose up -d --force-recreate --no-deps webserver
  
