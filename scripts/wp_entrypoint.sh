@@ -142,4 +142,6 @@ if (!$mysql->query('CREATE DATABASE IF NOT EXISTS `' . $mysql->real_escape_strin
 $mysql->close();
 EOPHP
 
+chown -R www-data:www-data /var/www/html/*
+
 exec "$@"
