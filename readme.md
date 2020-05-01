@@ -102,7 +102,7 @@ With your containers running, you can now complete your WordPress installation t
 To setup the automatic renewal of the certificates follow the steps:
  * chmod +x ssl_renew.sh
  * sudo crontab -e
- * add '`0 12 * * * ~/wordpress/scripts/ssl_renew.sh >> /var/log/cron.log 2>&1`'
+ * add '`0 12 * * * ~/compose-wordpress/scripts/ssl_renew.sh >> /var/log/cron.log 2>&1`'
 
 ## Create Swap file
 
