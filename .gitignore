@@ -106,3 +106,7 @@ dist
 
 # VSCode
 .vscode/
+
+.themes/
+
+.plugins/
