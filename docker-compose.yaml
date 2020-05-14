@@ -5,6 +5,8 @@ services:
     image: mysql:8.0
     container_name: database
     restart: unless-stopped
+    ports:
+      - "3306:3306"
     env_file: .db_env
     volumes: 
       - dbdata:/var/lib/mysql
