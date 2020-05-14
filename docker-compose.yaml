@@ -12,12 +12,6 @@ services:
     networks:
       - app-network
 
-  dbUi:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
-
   wordpress:
     depends_on: 
       - database
