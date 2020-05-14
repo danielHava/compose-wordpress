@@ -21,13 +21,6 @@ services:
     container_name: wordpress
     restart: unless-stopped
     env_file: .wp_env
-    environment:
-      - WORDPRESS_DB_HOST=database:3306
-      - WORDPRESS_DB_USER=$WP_USER
-      - WORDPRESS_DB_PASSWORD=$WP_PASSWORD
-      - WORDPRESS_DB_NAME=$WP_DATABASE
-      - WORDPRESS_TABLE_PREFIX=wh_
-      - WORDPRESS_DEBUG=1
     volumes:
       - wordpress:/var/www/html
     networks:
