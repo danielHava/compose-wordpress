@@ -110,3 +110,5 @@ dist
 themes/*
 
 plugins/*
+
+.*_env
