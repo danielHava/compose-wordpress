@@ -4,6 +4,17 @@ This Repo is meant to be used to quickly & painlessly spin up a new containerize
 
 ## Environment
 
+Two files are needed, one for the db name `db.env`, and another `wp.env`
+
+`db.env`
+```
+MYSQL_ROOT_PASSWORD=you_root_password
+MYSQL_USER=your_wp_db_username
+MYSQL_PASSWORD=your_wp_db_password
+MYSQL_DATABASE=your_wp_db
+```
+
+`wp.env`
 ```
 MYSQL_ROOT_PASSWORD=you_root_password
 MYSQL_USER=your_wp_db_username
@@ -15,10 +26,10 @@ MYSQL_DATABASE=your_wp_db
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-  1. Clone the repo
+  1. clone the repo
   2. cd compose-wordpress
   3. vim .env and add your environment varibles
-  4. sed s/&DOMAIN&/your_domain/g ./nginx/nginx-nossl.conf > ./nginx/nginx.conf
+  4. sed s/&DOMAIN&/your_domain/g ./nginx-conf/nginx-nossl.conf > ./nginx/nginx.conf
   5. sed -i s/&DOMAIN&/your_domain/g ./docker-compose.yaml
   6. sed -i s/&EMAIL&/your_email/g ./docker-compose.yaml
   7. docker-compose up -d will execute the containers
