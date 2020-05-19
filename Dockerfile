@@ -86,8 +86,8 @@ RUN set -ex; \
 	rm wordpress.tar.gz; \
 	chown -R www-data:www-data /usr/src/wordpress
 
-COPY docker-entrypoint.sh /usr/local/bin/
+COPY ./scripts/wp_entrypoint.sh /entrypoint.sh
 
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["php-fpm"]
