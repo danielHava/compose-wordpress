@@ -86,9 +86,9 @@ RUN set -ex; \
 	rm wordpress.tar.gz; \
 	chown -R www-data:www-data /usr/src/wordpress
 
-COPY ./scripts/wp_entrypoint.sh /entrypoint.sh
+COPY scripts/wp_entrypoint.sh /entrypoint.sh
 
-COPY ./config/custom.ini /usr/local/etc/php/conf.d/custom.ini
+COPY config/custom.ini /usr/local/etc/php/conf.d/
 
 RUN ["chmod", "+x", "/entrypoint.sh"]
 
