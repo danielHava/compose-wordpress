@@ -88,6 +88,8 @@ RUN set -ex; \
 
 COPY ./scripts/wp_entrypoint.sh /entrypoint.sh
 
+COPY ./config/custom.ini /usr/local/etc/php/conf.d/custom.ini
+
 RUN ["chmod", "+x", "/entrypoint.sh"]
 
 ENTRYPOINT ["/entrypoint.sh"]
