@@ -42,8 +42,8 @@ services:
       - "443:443"
     volumes:
       - wordpress:/var/www/html
-      - ./config/nginx/mime.types:/etc/nginx/mime.types;
-      - ./config/nginx/fastcgi.conf:/etc/nginx/fastcgi.conf;
+      - ./config/nginx/mime.types:/etc/nginx/mime.types
+      - ./config/nginx/fastcgi.conf:/etc/nginx/fastcgi.conf
       - ./nginx:/etc/nginx/conf.d
       - certbot-etc:/etc/letsencrypt
     networks:
