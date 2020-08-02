@@ -21,13 +21,12 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
+    image: homebrew-wordpress
     container_name: wordpress
     restart: unless-stopped
     env_file: wp.env
     volumes:
       - wordpress:/var/www/html
-      - ./themes:/var/www/html/wp-content/themes/
-      - ./plugins:/var/www/html/wp-content/plugins/
     networks:
       - app-network
 
@@ -42,6 +41,8 @@ services:
       - "443:443"
     volumes:
       - wordpress:/var/www/html
+      - ./themes:/var/www/html/wp-content/themes/
+      - ./plugins:/var/www/html/wp-content/plugins/
       - ./config/nginx/mime.types:/etc/nginx/mime.types
       - ./config/nginx/fastcgi.conf:/etc/nginx/fastcgi.conf
       - ./nginx:/etc/nginx/conf.d
