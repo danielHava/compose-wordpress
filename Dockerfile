@@ -1,4 +1,4 @@
-FROM php:7.4-fpm
+FROM php:8.2-fpm
 
 # persistent dependencies
 RUN set -eux; \
@@ -16,8 +16,8 @@ RUN set -ex; \
 	\
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
-		libfreetype6-dev \
-		libjpeg-dev \
+		libfreetype-dev \
+		libjpeg62-turbo-dev \
 		libmagickwand-dev \
 		libpng-dev \
 		libzip-dev \
