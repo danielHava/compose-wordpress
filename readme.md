@@ -82,7 +82,7 @@ drwxr-xr-x    2 root     root          4096 May 10 15:45 your_domain
 ```
 
 To enable `https` follow the steps:
-  * replace the --staging flag in your docker-compose file with --force-renewal
+  * replace the --staging flag in 'certbot' in your docker-compose file with --force-renewal
   * docker-compose up --force-recreate --no-deps certbot
   * docker stop webserver
   * curl -sSLo nginx/options-ssl-nginx.conf https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/_internal/tls_configs/options-ssl-nginx.conf
