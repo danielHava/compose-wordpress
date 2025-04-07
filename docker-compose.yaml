@@ -3,7 +3,7 @@ version: '3.2'
 services:
 
   database:
-    image: mysql:9.2
+    image: mysql:8.0
     container_name: database
     restart: unless-stopped
     ports:
@@ -18,10 +18,7 @@ services:
   wordpress:
     depends_on: 
       - database
-    build: 
-      context: .
-      dockerfile: Dockerfile
-    image: homebrew-wordpress
+    image: wordpress:6.7.2-fpm-alpine
     container_name: wordpress
     restart: unless-stopped
     env_file: wp.env
@@ -47,7 +44,7 @@ services:
       - ./plugins:/var/www/html/wp-content/plugins/
       - ./config/nginx/mime.types:/etc/nginx/mime.types
       - ./config/nginx/fastcgi.conf:/etc/nginx/fastcgi.conf
-      - ./nginx:/etc/nginx/conf.d
+      - ./nginx-conf:/etc/nginx/conf.d
       - certbot-etc:/etc/letsencrypt
     networks:
       - app-network
@@ -60,7 +57,7 @@ services:
     volumes:
       - certbot-etc:/etc/letsencrypt
       - wordpress:/var/www/html
-    command: certonly --webroot --webroot-path=/var/www/html --email &EMAIL& --agree-tos --no-eff-email --staging -d &DOMAIN& -d www.&DOMAIN&
+    command: certonly --webroot --webroot-path=/var/www/html --email dani.hava@protonmail.com --agree-tos --no-eff-email --force-renewal -d ioanaciupa.com -d www.ioanaciupa.com
 
 volumes:
   certbot-etc:
